@@ -59,10 +59,10 @@
 
         layer_3 {
             bindings = <
-&bt BT_CLR  &trans  &trans  &trans  &trans  &trans       &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES  &kp PIPE       &trans  &trans  &trans
-&trans      &trans  &trans  &trans  &trans  &trans       &kp AT                 &kp SINGLE_QUOTE   &kp BSLH       &trans  &trans  &trans
-&trans      &trans  &trans  &trans  &trans  &trans       &trans                 &trans             &trans         &trans  &trans  &trans
-                            &trans  &trans  &kp SPACE    &kp ENTER              &trans             &kp RIGHT_ALT
+&bt BT_CLR  &bt BT_CLR_ALL  &bt BT_NXT  &trans  &trans  &trans       &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES  &kp PIPE       &trans  &trans  &trans
+&trans      &trans          &trans      &trans  &trans  &trans       &kp AT                 &kp SINGLE_QUOTE   &kp BSLH       &trans  &trans  &trans
+&trans      &trans          &trans      &trans  &trans  &trans       &trans                 &trans             &trans         &trans  &trans  &trans
+                                        &trans  &trans  &kp SPACE    &kp ENTER              &trans             &kp RIGHT_ALT
             >;
         };
     };
