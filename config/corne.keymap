@@ -9,6 +9,15 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        music {
+            bindings = <&tog 4>;
+            key-positions = <36 37 38>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -63,6 +72,15 @@
 &trans      &trans  &trans  &trans  &trans  &trans       &kp AT                 &kp SINGLE_QUOTE   &kp BSLH       &trans  &trans  &trans
 &trans      &trans  &trans  &trans  &trans  &trans       &trans                 &trans             &trans         &trans  &trans  &trans
                             &trans  &trans  &kp SPACE    &kp ENTER              &trans             &kp RIGHT_ALT
+            >;
+        };
+
+        layer_5 {
+            bindings = <
+&kp C_PLAY_PAUSE  &kp C_PREVIOUS  &kp C_NEXT  &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS         &kp MINUS     &kp ASTERISK
+&kp LCTRL         &trans          &trans      &trans      &kp ASTERISK       &kp LEFT_PARENTHESIS    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_NUMBER_0  &kp UP_ARROW  &kp KP_DIVIDE
+&kp LSHFT         &trans          &trans      &trans      &kp UNDER          &kp EXCLAMATION         &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp LEFT         &kp DOWN      &kp RIGHT
+                                              &kp LGUI    &trans             &kp SPACE               &kp RET          &trans           &kp RALT
             >;
         };
     };
