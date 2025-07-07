@@ -19,8 +19,6 @@
 ---
 include:
   - board: nice_nano_v2 
-    shield: corne_left nice_view_adapter nice_view
+    shield: corneCirque_left
   - board: nice_nano_v2
-    shield: corne_right nice_view_adapter nice_view
-  - board: nice_nano_v2
-    shield: settings_reset
+    shield: corneCirque_right 
