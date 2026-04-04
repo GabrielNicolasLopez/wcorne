@@ -63,7 +63,7 @@
         };
         layer_3 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans       &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES  &kp PIPE       &trans  &trans  &trans
+&studio_unlock  &trans  &trans  &trans  &trans  &trans       &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES  &kp PIPE       &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans       &kp AT                 &kp SINGLE_QUOTE   &kp BSLH       &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans       &ext_power EP_ON       &ext_power EP_OFF  &trans         &trans  &trans  &trans
                         &trans  &trans  &kp SPACE    &kp ENTER              &trans             &kp RIGHT_ALT
