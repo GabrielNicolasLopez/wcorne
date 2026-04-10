@@ -9,7 +9,7 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: nicenano
+    - name: zmk-nice-nano     
       remote: nicekeyboards
       revision: main
       import: west.yml
