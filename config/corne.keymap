@@ -18,6 +18,51 @@
             quick-tap-ms = <200>;
             flavor = "tap-preferred";
         };
+
+                punto_coma: punto_coma {
+            compatible = "zmk,behavior-mod-morph";
+            label = "PUNTO_COMA";
+            bindings = <&kp ES_COMMA>, <&kp ES_SEMICOLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        punto_doble: punto_doble {
+            compatible = "zmk,behavior-mod-morph";
+            label = "PUNTO_DOBLE";
+            bindings = <&kp ES_PERIOD>, <&kp ES_COLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        lineal_dash: lineal_dash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LINEAL_DASH";
+            bindings = <&kp ES_MINUS>, <&kp ES_UNDERSCORE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        comillas: comillas {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMILLAS";
+            bindings = <&kp ES_DOUBLE_QUOTES>, <&kp ES_SINGLE_QUOTE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        mayor_menor: mayor_menor {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MAYOR_MENOR";
+            bindings = <&kp ES_LT>, <&kp ES_GT>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     keymap {
