@@ -70,19 +70,19 @@
 
         General {
             bindings = <
-&kp TAB     &kp Q                 &kp W                 &kp E                     &kp R                   &kp T        &kp Y      &kp U                   &kp I                     &kp O                 &kp P                          &kp ES_ACUTE
-&kp ESCAPE  &tap_hold LEFT_WIN A  &tap_hold LEFT_ALT S  &tap_hold LEFT_CONTROL D  &tap_hold LEFT_SHIFT F  &kp G        &kp H      &tap_hold LEFT_SHIFT J  &tap_hold LEFT_CONTROL K  &tap_hold LEFT_ALT L  &tap_hold LEFT_WIN ES_N_TILDE  &kp ENTER
-&mayor_menor       &kp Z                 &kp X                 &kp C                     &kp V                   &kp B        &kp N      &kp M                   &punto_coma                     &punto_doble                 &lineal_dash                          &tap_hold DELETE BACKSPACE
-                                                        &none                     &mo 1                   &kp SPACE    &kp SPACE  &mo 2                   &none
+&kp TAB       &kp Q                 &kp W                 &kp E                     &kp R                   &kp T        &kp Y      &kp U                   &kp I                     &kp O                 &kp P                          &kp ES_ACUTE
+&kp ESCAPE    &tap_hold LEFT_WIN A  &tap_hold LEFT_ALT S  &tap_hold LEFT_CONTROL D  &tap_hold LEFT_SHIFT F  &kp G        &kp H      &tap_hold LEFT_SHIFT J  &tap_hold LEFT_CONTROL K  &tap_hold LEFT_ALT L  &tap_hold LEFT_WIN ES_N_TILDE  &kp ENTER
+&mayor_menor  &kp Z                 &kp X                 &kp C                     &kp V                   &kp B        &kp N      &kp M                   &punto_coma               &punto_doble          &lineal_dash                   &tap_hold DELETE BACKSPACE
+                                                          &none                     &mo 1                   &kp SPACE    &kp SPACE  &mo 2                   &none
             >;
         };
 
         Numeros {
             bindings = <
-&kp TAB     &none  &kp ES_LEFT_BRACKET  &kp ES_LEFT_BRACE  &kp ES_LEFT_PARENTHESIS  &kp ES_BACKSLASH    &kp ES_SLASH  &kp ES_RIGHT_PARENTHESIS  &kp ES_RIGHT_BRACE  &kp ES_RIGHT_BRACKET  &comillas  &kp BACKSPACE
-&kp ESCAPE  &kp LEFT_WIN      &kp LEFT_ALT         &kp LCTRL          &kp LEFT_SHIFT           &none               &none         &none                     &none               &none                 &none                &kp ENTER
-&none       &none             &none                &none              &none                    &none               &none         &none                     &none               &none                 &none                &none
-                                                   &none              &trans                   &kp SPACE           &kp SPACE     &trans                    &none
+&none  &kp ES_PIPE          &kp ES_CARET         &kp ES_ASTRK       &kp ES_INVERTED_QUESTION  &kp ES_INVERTED_EXCLAMATION    &kp ES_EXCLAMATION  &kp ES_QUESTION           &kp ES_EQUAL        &kp ES_PLUS           &kp ES_DEG            &none
+&none  &kp ES_SINGLE_QUOTE  &kp ES_LEFT_BRACKET  &kp ES_LEFT_BRACE  &kp ES_LEFT_PARENTHESIS   &kp ES_BACKSLASH               &kp ES_SLASH        &kp ES_RIGHT_PARENTHESIS  &kp ES_RIGHT_BRACE  &kp ES_RIGHT_BRACKET  &kp ES_DOUBLE_QUOTES  &kp ES_GRAVE
+&none  &none                &none                &none              &kp ES_AMPERSAND          &kp ES_DOLLAR                  &kp ES_PERCENT      &kp ES_HASH               &none               &none                 &none                 &none
+                                                 &none              &trans                    &kp SPACE                      &kp SPACE           &trans                    &none
             >;
         };
 
