@@ -13,7 +13,3 @@
         triggers-per-rotation = <20>;
     };
 };
-
-&{/keymap/default_layer} {
-    sensor-bindings = <&inc_dec_kp LS(TAB) TAB>;
-};
