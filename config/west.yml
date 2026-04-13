@@ -4,10 +4,16 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: nicekeyboards
       url-base: https://github.com/nicekeyboards
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: v0.3
       import: app/west.yml
+    
+    - name: zmk-tri-state
+      remote: urob
+      revision: v0.3
   self:
     path: config
