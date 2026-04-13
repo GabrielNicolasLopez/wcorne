@@ -12,60 +12,13 @@
         };
     };
 
-    macros {
-        start_alt_tab: start_alt_tab {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&kt_on LALT>
-                , <&kp TAB>
-                , <&to 5>
-                ;
-        };
-    
-        finish_alt_tab: finish_alt_tab {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&kt_off LALT>
-                , <&to 0>
-                ;
-        };
-    };
-
     behaviors {
-        kt_on: key_toggle_on_only {
-            compatible = "zmk,behavior-key-toggle";
-            #binding-cells = <1>;
-            toggle-mode = "on";
-        };
-
-        kt_off: key_toggle_off_only {
-            compatible = "zmk,behavior-key-toggle";
-            #binding-cells = <1>;
-            toggle-mode = "off";
-        };
-
-        pwin: pwin {
-            compatible = "zmk,behavior-tri-state";
-            label = "PWIN";
-            #binding-cells = <0>;
-            timeout-ms = <1000>;
-            bindings = <&kt_on LALT>, <&kp TAB>, <&kt_off LALT>;
-        };
-
-        nwin: nwin {
-            compatible = "zmk,behavior-tri-state";
-            label = "NWIN";
-            #binding-cells = <0>;
-            timeout-ms = <1000>;
-            bindings = <&kt_on LALT>, <&kp LS(TAB)>, <&kt_off LALT>;
-        };
-
         alt_tab_encoder: alt_tab_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
+            compatible = "zmk,behavior-alt-tab-encoder";
             #sensor-binding-cells = <0>;
-            bindings = <&pwin>, <&nwin>;
+            release-after-ms = <1000>;
+            tap-ms = <5>;
+            bindings = <&kp LALT>, <&kp TAB>, <&kp LS(TAB)>;
         };
 
         td_lshft_caps: td_lshft_caps {

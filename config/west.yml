@@ -4,16 +4,16 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: nicekeyboards
       url-base: https://github.com/nicekeyboards
-    - name: urob
-      url-base: https://github.com/urob
+    - name: GabrielNicolasLopez
+      url-base: https://github.com/GabrielNicolasLopez
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: v0.3
       import: app/west.yml
     
-    - name: zmk-tri-state
-      remote: urob
-      revision: v0.3
+    - name: zmk-behavior-alt-tab-encoder
+      remote: GabrielNicolasLopez
+      revision: main
   self:
     path: config
