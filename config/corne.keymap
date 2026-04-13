@@ -12,7 +12,47 @@
         };
     };
 
+    macros {
+        start_alt_tab: start_alt_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kt_on LALT>
+                , <&kp TAB>
+                , <&to 5>
+                ;
+        };
+    
+        finish_alt_tab: finish_alt_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kt_off LALT>
+                , <&to 0>
+                ;
+        };
+    };
+
     behaviors {
+        alt_tab_nav: alt_tab_nav {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp TAB &kp LS(TAB)>;
+            tap-ms = <30>;
+        };
+    
+        kt_on: key_toggle_on_only {
+            compatible = "zmk,behavior-key-toggle";
+            #binding-cells = <1>;
+            toggle-mode = "on";
+        };
+    
+        kt_off: key_toggle_off_only {
+            compatible = "zmk,behavior-key-toggle";
+            #binding-cells = <1>;
+            toggle-mode = "off";
+        };
+    
         td_lshft_caps: td_lshft_caps {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_LSHFT_CAPS";
@@ -20,18 +60,13 @@
             tapping-term-ms = <200>;
             bindings = <&kp LSHFT>, <&kp CAPS>;
         };
-        td_left_home: td_left_home {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LEFT>, <&kp HOME>;
-        };
     
-        td_right_end: td_right_end {
+        td_c_alt_tab: td_c_alt_tab {
             compatible = "zmk,behavior-tap-dance";
+            label = "TD_C_ALT_TAB";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp RIGHT>, <&kp END>;
+            bindings = <&kp C>, <&start_alt_tab>;
         };
     };
 
@@ -41,7 +76,7 @@
             bindings = <
 &kp TAB         &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y    &kp U  &kp I       &kp O    &kp P     &kp BSPC
 &td_lshft_caps  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H    &kp J  &kp K       &kp L    &kp SEMI  &kp LBKT
-&kp LCTRL       &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N    &kp M  &kp COMMA   &kp DOT  &kp FSLH  &kp ESC
+&kp LCTRL       &kp Z  &kp X  &td_c_alt_tab     &kp V  &kp B        &kp N    &kp M  &kp COMMA   &kp DOT  &kp FSLH  &kp ESC
                           &kp LALT  &mo 2  &kp SPACE        &kp RET  &mo 1  &kp INSERT
             >;
         };
@@ -69,14 +104,15 @@
                         &trans  &trans  &kp SPACE    &kp ENTER              &trans             &kp RIGHT_ALT
             >;
         };
-        layer_5 {
-            bindings = <
-&kp C_PLAY_PAUSE  &kp C_PREVIOUS  &kp C_NEXT  &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS         &kp MINUS     &kp ASTERISK
-&kp LSHFT         &trans          &trans      &trans      &kp ASTERISK       &kp LEFT_PARENTHESIS    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_NUMBER_0  &kp UP_ARROW  &kp KP_DIVIDE
-&kp LCTRL       &trans          &trans      &trans      &kp UNDER          &kp EXCLAMATION         &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp LEFT         &kp DOWN      &kp RIGHT
-                                              &kp LGUI    &trans             &kp SPACE               &kp RET          &trans           &kp RALT
-            >;
-        };
+    alt_tab_layer {
+        bindings = <
+&trans  &trans  &trans  &trans            &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans            &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &finish_alt_tab   &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans
+                          &trans  &trans  &trans                &trans  &trans  &trans
+        >;
+    sensor-bindings = <&alt_tab_nav &inc_dec_kp C_VOL_DN C_VOL_UP>;
+};
     };
 
     conditional_layers {
