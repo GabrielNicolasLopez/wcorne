@@ -80,7 +80,7 @@
 &kp LCTRL       &kp Z  &kp X  &td_c_alt_tab      &kp V  &kp B        &kp N    &kp M  &kp COMMA   &kp DOT  &kp FSLH  &kp ESC
                           &kp LALT  &mo 2  &kp SPACE        &kp RET  &mo 1  &kp INSERT
             >;
-          sensor-bindings = <&alt_tab_slow &inc_dec_kp C_VOL_UP C_VOL_DN>;
+          sensor-bindings = <&alt_tab_nav &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
         lower_layer {
             bindings = <
