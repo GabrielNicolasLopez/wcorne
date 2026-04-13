@@ -112,15 +112,6 @@
                         &trans  &trans  &kp SPACE    &kp ENTER              &trans             &kp RIGHT_ALT
             >;
         };
-        alt_tab_layer {
-            bindings = <
-&trans  &trans  &trans  &trans            &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans            &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &finish_alt_tab   &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans
-                          &trans  &trans  &trans                &trans  &trans  &trans
-        >;
-        sensor-bindings = <&alt_tab_nav &inc_dec_kp C_VOL_DN C_VOL_UP>;
-        };
     };
 
     conditional_layers {
