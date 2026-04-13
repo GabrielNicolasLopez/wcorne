@@ -17,7 +17,7 @@
         alt_tab_slow: alt_tab_slow {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&kp LS(TAB) &kp TAB>;
+            bindings = <&kp LA(TAB) &kp LA(LS(TAB))>;
             tap-ms = <200>;
         };
         td_lshft_caps: td_lshft_caps {
