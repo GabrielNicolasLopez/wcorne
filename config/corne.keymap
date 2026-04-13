@@ -16,9 +16,9 @@
         alt_tab_encoder: alt_tab_encoder {
             compatible = "zmk,behavior-alt-tab-encoder";
             #sensor-binding-cells = <0>;
-            release-after-ms = <1000>;
+            release-after-ms = <500>;
             tap-ms = <5>;
-            bindings = <&kp LALT>, <&kp TAB>, <&kp LS(TAB)>;
+            bindings = <&kp LALT>, <&kp LS(TAB)>, <&kp TAB>;
         };
 
         td_lshft_caps: td_lshft_caps {
