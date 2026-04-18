@@ -43,7 +43,7 @@
         };
         lower_layer {
             bindings = <
-&kp TAB         &none   &none   &none     &none           &none                   &kp N7        &kp N8        &kp N9        &kp PLUS  &kp MINUS       &kp DELETE
+&kp TAB         &kp RA(Q)   &none   &none     &none           &none                   &kp N7        &kp N8        &kp N9        &kp PLUS  &kp MINUS       &kp DELETE
 &td_lshft_caps  &none   &none   &none     &kp ASTERISK    &kp LEFT_PARENTHESIS    &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp N0    &kp UP_ARROW    &kp KP_DIVIDE
 &kp LCTRL       &trans  &trans  &trans    &kp UNDERSCORE  &kp EXCL                &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
                                 &kp LGUI  &trans          &kp SPACE               &kp RET       &trans        &kp RALT
