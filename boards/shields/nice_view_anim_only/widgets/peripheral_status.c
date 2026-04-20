@@ -7,10 +7,10 @@
 
 #include "peripheral_status.h"
 
-LV_IMG_DECLARE(corro01);
+LV_IMG_DECLARE(corne_right_logo);
 
 const lv_img_dsc_t *anim_imgs[] = {
-    &corro01,
+    &corne_right_logo,
 };
 
 int zmk_widget_status_init(struct zmk_widget_status *widget, lv_obj_t *parent) {
