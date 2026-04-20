@@ -1,9 +1,13 @@
 #include <zephyr/init.h>
 #include <zephyr/kernel.h>
 
-#include <zmk/display.h>
-
 #include <lvgl.h>
+
+#include <stdbool.h>
+
+/* Avoid depending on ZMK header include paths in user-config builds. */
+struct k_work_q *zmk_display_work_q(void);
+bool zmk_display_is_initialized(void);
 
 LV_IMG_DECLARE(corne_right_logo);
 
@@ -12,10 +16,10 @@ static lv_obj_t *logo_img;
 static void create_logo_overlay(struct k_work *work) {
     ARG_UNUSED(work);
 
-    /* Only show on the peripheral (right half). */
-#if !IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_PERIPHERAL)
-    return;
-#endif
+    /* Only show on the peripheral (right half) for split builds. */
+    if (IS_ENABLED(CONFIG_ZMK_SPLIT) && !IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_PERIPHERAL)) {
+        return;
+    }
 
     if (logo_img != NULL) {
         return;
@@ -59,4 +63,3 @@ static int right_logo_overlay_init(void) {
 }
 
 SYS_INIT(right_logo_overlay_init, APPLICATION, 90);
-
