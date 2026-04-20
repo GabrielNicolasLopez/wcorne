@@ -9,7 +9,7 @@
 struct k_work_q *zmk_display_work_q(void);
 bool zmk_display_is_initialized(void);
 
-LV_IMG_DECLARE(corne_right_logo);
+extern const lv_img_dsc_t corne_right_logo;
 
 static lv_obj_t *logo_img;
 
