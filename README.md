@@ -18,3 +18,17 @@
 
 #### Adjust
 <img width="1323" height="433" alt="image" src="https://github.com/user-attachments/assets/99f0bac7-8d1f-44e1-ba15-74e243d0b068" />
+
+## Imagen en display derecho (nice!view)
+
+Este repo compila una pantalla custom solo para `corne_right` (la izquierda queda con status screen built-in).
+
+### Cambiar la imagen
+
+1. Convertí tu PNG a imagen de LVGL usando el converter: https://lvgl.io/tools/imageconverter
+2. Elegí:
+   - **Output**: `C array` (variable)
+   - **Color format**: `Alpha 1-bit` (`LV_IMG_CF_ALPHA_1BIT`) recomendado para pantallas monocromo
+   - **Name**: `corne_right_logo` (así no tenés que tocar el código)
+3. Reemplazá el contenido de `src/corne_right_logo.c` por el archivo generado.
+4. Commit + push para que GitHub Actions te genere el nuevo `.uf2`, y flashealo en la mitad derecha.
