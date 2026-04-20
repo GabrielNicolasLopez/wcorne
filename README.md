@@ -34,3 +34,7 @@ Este repo compila una pantalla custom solo para `corne_right` (la izquierda qued
 4. Commit + push para que GitHub Actions te genere el nuevo `.uf2`, y flashealo en la mitad derecha.
 
 Nota: no reemplazamos el status screen de `nice_view` (eso rompe por doble definiciÃ³n). En vez de eso, `src/right_display_logo_overlay.c` agrega la imagen arriba del UI solo cuando el firmware es **peripheral** (mitad derecha).
+
+Config recomendada:
+- `corne_left.conf`: `CONFIG_ZMK_DISPLAY_STATUS_SCREEN_CUSTOM=y` (para mantener el layout de nice!view).
+- `corne_right.conf`: `CONFIG_ZMK_DISPLAY_STATUS_SCREEN_BUILT_IN=y` (la imagen tapa todo si usÃ¡s 160x68).
