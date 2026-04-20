@@ -37,4 +37,4 @@ Nota: no reemplazamos el status screen de `nice_view` (eso rompe por doble defin
 
 Config recomendada:
 - `corne_left.conf`: `CONFIG_ZMK_DISPLAY_STATUS_SCREEN_CUSTOM=y` (para mantener el layout de nice!view).
-- `corne_right.conf`: `CONFIG_ZMK_DISPLAY_STATUS_SCREEN_BUILT_IN=y` (la imagen tapa todo si usÃ¡s 160x68).
+- `corne_right.conf`: `CONFIG_ZMK_DISPLAY_STATUS_SCREEN_CUSTOM=y` (mantiene layout nice!view; la imagen 160x68 se superpone arriba).

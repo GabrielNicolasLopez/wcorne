@@ -16,11 +16,6 @@ static lv_obj_t *logo_img;
 static void create_logo_overlay(struct k_work *work) {
     ARG_UNUSED(work);
 
-    /* Only show on the peripheral (right half) for split builds. */
-    if (IS_ENABLED(CONFIG_ZMK_SPLIT) && !IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_PERIPHERAL)) {
-        return;
-    }
-
     if (logo_img != NULL) {
         return;
     }
@@ -46,6 +41,14 @@ K_WORK_DEFINE(create_logo_overlay_work, create_logo_overlay);
 static void wait_for_display_init(struct k_work *work);
 K_WORK_DELAYABLE_DEFINE(wait_for_display_init_work, wait_for_display_init);
 
+static void submit_logo_overlay(struct k_work *work);
+K_WORK_DELAYABLE_DEFINE(submit_logo_overlay_work, submit_logo_overlay);
+
+static void submit_logo_overlay(struct k_work *work) {
+    ARG_UNUSED(work);
+    k_work_submit_to_queue(zmk_display_work_q(), &create_logo_overlay_work);
+}
+
 static void wait_for_display_init(struct k_work *work) {
     ARG_UNUSED(work);
 
@@ -54,7 +57,8 @@ static void wait_for_display_init(struct k_work *work) {
         return;
     }
 
-    k_work_submit_to_queue(zmk_display_work_q(), &create_logo_overlay_work);
+    /* Give status screen time to load, then overlay image on active screen. */
+    k_work_schedule(&submit_logo_overlay_work, K_MSEC(1000));
 }
 
 static int right_logo_overlay_init(void) {
