@@ -38,3 +38,24 @@ Nota: no reemplazamos el status screen de `nice_view` (eso rompe por doble defin
 Config recomendada:
 - `corne_left.conf`: `CONFIG_ZMK_DISPLAY_STATUS_SCREEN_CUSTOM=y` (para mantener el layout de nice!view).
 - `corne_right.conf`: `CONFIG_ZMK_DISPLAY_STATUS_SCREEN_CUSTOM=y` (mantiene layout nice!view; la imagen 160x68 se superpone arriba).
+
+## Animacion Urchin (GPeye)
+
+Este repo ahora puede usar el modulo `GPeye/urchin-peripheral-animation` para mostrar la animacion del lado derecho.
+
+### Como funciona
+
+1. `config/west.yml` agrega el modulo externo.
+2. `build.yaml` cambia `nice_view` por `nice_view_custom`.
+3. `config/corne_right.conf` define `CONFIG_CUSTOM_ANIMATION_SPEED=4800`.
+4. `zephyr/CMakeLists.txt` evita compilar el overlay local cuando `nice_view_custom` esta activo.
+
+### Build y flash
+
+1. Hace push de estos cambios.
+2. Espera el build de GitHub Actions.
+3. Flashea los nuevos `.uf2` en ambas mitades.
+
+### Volver al logo estatico
+
+Si queres volver al setup local anterior, cambia `nice_view_custom` por `nice_view` en `build.yaml`.
