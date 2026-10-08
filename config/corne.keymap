@@ -4,6 +4,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include "keys_es_latin_american.h"
 
+#define BASE_TD     0
+#define BASE_NORMAL 1
+#define LOWER       2
+#define RAISE       3
+#define EXTRA       4
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -12,21 +18,32 @@
             bindings = <&kp ES_LT>;
             key-positions = <3 4>;
         };
+
         rt_greater {
             bindings = <&kp ES_GT>;
             key-positions = <4 5>;
         };
+
         yu_plus {
             bindings = <&kp ES_PLUS>;
             key-positions = <6 7>;
         };
+
         hj_minus {
             bindings = <&kp ES_MINUS>;
             key-positions = <18 19>;
         };
+
         nm_asterisk {
             bindings = <&kp ES_ASTERISK>;
             key-positions = <30 31>;
+        };
+
+        space_enter_base {
+            timeout-ms = <100>;
+            key-positions = <38 39>;
+            layers = <BASE_TD BASE_NORMAL>;
+            bindings = <&base_hold BASE_NORMAL 0>;
         };
     };
 
@@ -38,29 +55,50 @@
             tapping-term-ms = <200>;
             bindings = <&kp LSHFT>, <&kp CAPS>;
         };
+
+        base_hold: base_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <2000>;
+            bindings = <&tog>, <&none>;
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
+        // 0: Base con tap-dance en Shift.
         default_layer {
             bindings = <
 &kp TAB         &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I      &kp O    &kp P           &kp BSPC
 &td_lshft_caps  &kp A  &kp S  &kp D  &kp F  &kp G        &kp H  &kp J  &kp K      &kp L    &kp ES_N_TILDE  &kp ES_ACUTE
 &kp LCTRL       &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA  &kp DOT  &kp ES_SLASH    &kp ESC
-                       &kp LALT  &mo 2  &kp SPACE        &kp RET  &mo 1  &kp INSERT
+                   &kp LALT  &mo RAISE  &kp SPACE        &kp RET  &mo LOWER  &kp INSERT
             >;
         };
 
+        // 1: Base con Shift normal.
+        normal_base_layer {
+            bindings = <
+&kp TAB    &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I      &kp O    &kp P           &kp BSPC
+&kp LSHFT  &kp A  &kp S  &kp D  &kp F  &kp G        &kp H  &kp J  &kp K      &kp L    &kp ES_N_TILDE  &kp ES_ACUTE
+&kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA  &kp DOT  &kp ES_SLASH    &kp ESC
+              &kp LALT  &mo RAISE  &kp SPACE        &kp RET  &mo LOWER  &kp INSERT
+            >;
+        };
+
+        // 2: Lower. Shift hereda el comportamiento de la base activa.
         lower_layer {
             bindings = <
-&kp TAB         &kp ES_AT  &none   &none   &none            &none          &kp N7  &kp N8  &kp N9  &kp ES_PLUS     &kp ES_MINUS    &kp DELETE
-&td_lshft_caps  &none      &none   &none   &kp ES_LPAR      &kp ES_RPAR    &kp N4  &kp N5  &kp N6  &kp N0          &kp UP_ARROW    &kp KP_DIVIDE
-&kp LCTRL       &trans     &trans  &trans  &kp ES_QUESTION  &kp ES_EXCL    &kp N1  &kp N2  &kp N3  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
-                                   &kp LGUI  &trans  &kp SPACE           &kp RET  &trans  &kp RALT
+&kp TAB    &kp ES_AT  &none   &none   &none            &none          &kp N7  &kp N8  &kp N9  &kp ES_PLUS     &kp ES_MINUS    &kp DELETE
+&trans     &none      &none   &none   &kp ES_LPAR      &kp ES_RPAR    &kp N4  &kp N5  &kp N6  &kp N0          &kp UP_ARROW    &kp KP_DIVIDE
+&kp LCTRL  &trans     &trans  &trans  &kp ES_QUESTION  &kp ES_EXCL    &kp N1  &kp N2  &kp N3  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
+                              &kp LGUI  &trans  &kp SPACE           &kp RET  &trans  &kp RALT
             >;
         };
 
+        // 3: Raise.
         raise_layer {
             bindings = <
 &kp C_PLAY_PAUSE  &kp C_PREVIOUS  &kp C_NEXT  &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp ES_PLUS      &kp ES_MINUS    &kp ES_ASTERISK
@@ -70,7 +108,8 @@
             >;
         };
 
-        layer_3 {
+        // 4: Extra, activa al mantener Lower + Raise.
+        extra_layer {
             bindings = <
 &studio_unlock  &trans  &trans  &trans  &trans  &trans       &kp ES_EQUAL      &kp ES_DQT         &kp ES_PIPE       &trans  &trans  &trans
 &trans          &trans  &trans  &trans  &trans  &trans       &kp ES_AT         &kp ES_SQT         &kp ES_BACKSLASH  &trans  &trans  &trans
@@ -84,8 +123,8 @@
         compatible = "zmk,conditional-layers";
 
         extra_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
+            if-layers = <LOWER RAISE>;
+            then-layer = <EXTRA>;
         };
     };
 };
