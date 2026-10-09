@@ -30,7 +30,7 @@
         };
 
         hj_minus {
-            bindings = <&kp ES_MINUS>;
+            bindings = <&kp MINUS>;
             key-positions = <18 19>;
         };
 
@@ -111,7 +111,7 @@
         // 4: Extra, activa al mantener Lower + Raise.
         extra_layer {
             bindings = <
-&studio_unlock  &trans  &trans  &trans  &trans  &trans       &kp ES_EQUAL      &kp ES_DQT         &kp ES_PIPE       &trans  &trans  &trans
+&studio_unlock  &trans  &trans  &trans  &trans  &trans       &kp ES_EQUAL      &kp LS(SQT)         &kp ES_PIPE       &trans  &trans  &trans
 &trans          &trans  &trans  &trans  &trans  &trans       &kp ES_AT         &kp ES_SQT         &kp ES_BACKSLASH  &trans  &trans  &trans
 &trans          &trans  &trans  &trans  &trans  &trans       &ext_power EP_ON  &ext_power EP_OFF  &trans            &trans  &trans  &trans
                                &trans  &trans  &kp SPACE    &kp ENTER  &trans  &kp RIGHT_ALT
